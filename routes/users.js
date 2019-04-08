@@ -24,7 +24,7 @@ module.exports = (app) => {
 
     route.post((req, res) => {
 
-        console.log('body :', req.body);
+        if(!app.utils.validator.user(app, req, res)) return false;
 
         db.insert(req.body, (err, user) => {
 
